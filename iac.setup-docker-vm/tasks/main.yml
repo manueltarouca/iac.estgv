@@ -1,0 +1,11 @@
+---
+# tasks file for iac.setup-docker-vm
+- name: Update packages
+  package:
+    name: '*'
+    state: latest
+
+- name: Install docker runtime
+  snap:
+    name:
+      - docker
