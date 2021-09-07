@@ -1,2 +1,4 @@
 ---
 # tasks file for iac.dns-server
+- debug:
+    msg: Hello from iac.dns-server!

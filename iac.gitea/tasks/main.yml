@@ -1,2 +1,4 @@
 ---
 # tasks file for iac.gitea
+- debug:
+    msg: Hello from iac.gitea!

@@ -1,1 +1,6 @@
 ---
+- name: Run docker-vm roles
+  hosts: all
+  roles:
+    - iac.dns-server
+    - iac.gitea
