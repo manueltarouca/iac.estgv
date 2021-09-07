@@ -1,0 +1,3 @@
+# Ansible roles for docker virtual machine
+
+...
