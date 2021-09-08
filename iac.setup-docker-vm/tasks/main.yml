@@ -1,5 +1,9 @@
 ---
-# tasks file for iac.setup-docker-vm
+- name: Make sure there is DNS resoultion
+  service:
+    name: systemd-resolved
+    state: started
+
 - name: Install packages
   package:
     name:
@@ -21,8 +25,3 @@
     name:
       - docker
       - docker_compose
-- name: Disable systemd-resolved service
-  service:
-    name: systemd-resolved
-    enabled: no
-    state: stopped

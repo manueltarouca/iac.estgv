@@ -1,9 +1,5 @@
 ---
-# tasks file for iac.dns-server
-- debug:
-    msg: Hello from iac.dns-server!
-
-- name: Create required folder
+- name: Make sure data folder exists
   file:
     path: /root/data/coredns/
     state: directory
@@ -17,6 +13,19 @@
     - db.192.168.80
     - db.iac.estgv
     - docker-compose.yml
+    
+- name: Pull coredns/coredns docker image
+  docker_image:
+    name: coredns/coredns
+    tag: latest
+    source: pull
+    state: present
+
+- name: Disable systemd-resolved service
+  service:
+    name: systemd-resolved
+    enabled: no
+    state: stopped
 
 - name: Start docker-compose.yml definition
   docker_compose:

@@ -3,6 +3,6 @@
   hosts: docker-vm
   become: yes
   roles:
-    # - iac.setup-docker-vm
+    - iac.setup-docker-vm
     - iac.dns-server
     # - iac.gitea

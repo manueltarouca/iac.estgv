@@ -10,3 +10,4 @@ $TTL  604800
 
 32. IN PTR esxi.iac.estgv.
 33. IN PTR git.iac.estgv.
+34. IN PTR vpn.iac.estgv.

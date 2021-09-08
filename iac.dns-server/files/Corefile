@@ -5,11 +5,13 @@
 }
 iac.estgv:53 {
   file /root/db.iac.estgv
+  reload
   log
   errors
 }
 192.168.80.0/24:53 {
   file /root/db.192.168.80
+  reload
   log
   errors
 }
