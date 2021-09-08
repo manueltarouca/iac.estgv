@@ -1,9 +1,4 @@
 ---
-- name: Make sure there is DNS resoultion
-  service:
-    name: systemd-resolved
-    state: started
-
 - name: Install packages
   package:
     name:

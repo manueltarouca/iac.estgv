@@ -1,4 +1,11 @@
 ---
-# tasks file for iac.gitea
-- debug:
-    msg: Hello from iac.gitea!
+- name: Copy the docker-compose.yml file
+  copy:
+    dest: /root/docker-compose/gitea/
+    src: docker-compose.yml
+
+# To do: encrypt passwords
+- name: Start docker-compose.yml definition
+  docker_compose:
+    project_name: gitea
+    project_src: /root/docker-compose/gitea/
