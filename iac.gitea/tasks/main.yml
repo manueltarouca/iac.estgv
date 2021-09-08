@@ -4,7 +4,6 @@
     dest: /root/docker-compose/gitea/
     src: docker-compose.yml
 
-# To do: encrypt passwords
 - name: Start docker-compose.yml definition
   docker_compose:
     project_name: gitea
