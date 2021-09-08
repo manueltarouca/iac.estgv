@@ -1,8 +1,8 @@
 ---
 - name: Run docker-vm roles
   hosts: docker-vm
+  become: yes
   roles:
-    - name: iac.setup-docker-vm
-      become: yes
-    # - iac.dns-server
+    # - iac.setup-docker-vm
+    - iac.dns-server
     # - iac.gitea

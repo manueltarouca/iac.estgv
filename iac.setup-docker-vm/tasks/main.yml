@@ -1,11 +1,28 @@
 ---
 # tasks file for iac.setup-docker-vm
-- name: Update packages
+- name: Install packages
   package:
-    name: '*'
+    name:
+      - pip
+
+- name: Update all packages
+  package:
+    name:
+      - '*'
     state: latest
 
 - name: Install docker runtime
   snap:
     name:
       - docker
+
+- name: Install pip dependencies
+  pip:
+    name:
+      - docker
+      - docker_compose
+- name: Disable systemd-resolved service
+  service:
+    name: systemd-resolved
+    enabled: no
+    state: stopped

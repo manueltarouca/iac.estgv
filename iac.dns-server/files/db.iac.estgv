@@ -1,0 +1,13 @@
+$ORIGIN iac.estgv.
+@ 3600 IN SOA esxi.iac.estgv. mail.iac.estgv (
+    2017042745
+    7200
+    3600
+    1209600
+    3600
+    )
+  3600 IN NS a.iana-servers.net.
+  3600 IN NS b.iana-servers.net.
+
+esxi IN A 192.168.80.111
+git  IN A 192.168.80.200

@@ -2,3 +2,23 @@
 # tasks file for iac.dns-server
 - debug:
     msg: Hello from iac.dns-server!
+
+- name: Create required folder
+  file:
+    path: /root/data/coredns/
+    state: directory
+
+- name: Copy configuration files
+  copy:
+    dest: /root/data/coredns/
+    src: "{{ item }}"
+  loop:
+    - Corefile
+    - db.192.168.80
+    - db.iac.estgv
+    - docker-compose.yml
+
+- name: Start docker-compose.yml definition
+  docker_compose:
+    project_name: coredns
+    project_src: /root/data/coredns/
