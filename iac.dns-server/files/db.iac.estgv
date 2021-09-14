@@ -13,3 +13,5 @@ esxi IN A 192.168.80.111
 git  IN A 192.168.80.200
 vpn  IN A 193.137.7.19
 awx  IN A 192.168.80.202
+stack  IN A 192.168.80.204
+devstack  IN A 192.168.80.206

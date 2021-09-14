@@ -13,6 +13,7 @@
     - db.192.168.80
     - db.iac.estgv
     - docker-compose.yml
+  notify: Restart coredns container
     
 - name: Pull coredns/coredns docker image
   docker_image:

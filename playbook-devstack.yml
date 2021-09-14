@@ -1,0 +1,6 @@
+---
+- name: Run devstack-vm roles
+  hosts: devstack-vm
+  become: yes
+  roles:
+    - iac.setup-devstack-vm

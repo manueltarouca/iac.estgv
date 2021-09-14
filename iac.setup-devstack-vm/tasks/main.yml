@@ -1,0 +1,33 @@
+---
+- name: Update all packages
+  package:
+    name: '*'
+    state: latest
+
+- name: Create stack user
+  user:
+    name: stack
+    home: /opt/stack
+    shell: /bin/bash
+
+- name: Add authorized key
+  authorized_key:
+    user: stack
+    state: present
+    key: "{{ ssh_pubkey }}"
+
+- name: Create sudoer file for stack user
+  copy:
+    dest: /etc/sudoers.d/stack
+    content: "stack ALL=(ALL) NOPASSWD: ALL"
+
+- name: Clone devstack git repo
+  git:
+    dest: /opt/stack/devstack
+    repo: "{{ git_repo }}"
+
+- name: Copy local.conf file
+  copy:
+    dest: /opt/stack/devstack/
+    src: local.conf
+

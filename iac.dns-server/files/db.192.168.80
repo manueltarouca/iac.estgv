@@ -1,6 +1,6 @@
 $TTL  604800
 @ IN SOA esxi.iac.estgv. mail.iac.estgv. (
-    5
+    10
     604800
     86400
     2419200
@@ -12,3 +12,5 @@ $TTL  604800
 33. IN PTR git.iac.estgv.
 34. IN PTR vpn.iac.estgv.
 35. IN PTR awx.iac.estgv.
+36. IN PTR stack.iac.estgv.
+37. IN PTR devstack.iac.estgv.

@@ -1,2 +1,6 @@
 ---
-# handlers file for iac.dns-server
+- name: Restart coredns container
+  docker_compose:
+    project_name: coredns
+    project_src: /root/data/coredns/
+    restarted: yes
