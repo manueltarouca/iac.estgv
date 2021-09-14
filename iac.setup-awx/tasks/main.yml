@@ -1,0 +1,38 @@
+---
+- name: Install git
+  package:
+    name:
+      - git
+
+- name: Get latest kubectl version
+  uri:
+    url: https://storage.googleapis.com/kubernetes-release/release/stable.txt
+    return_content: yes
+  register: kubectl_response
+
+- set_fact:
+    kubectl_url: "https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_response.content }}/bin/linux/amd64/kubectl"
+
+- name: Download kubectl binary
+  uri:
+    url: "{{ kubectl_url }}"
+    dest: /usr/local/bin/kubectl
+    mode: u+x
+    owner: mt
+    creates: /usr/local/bin/kubectl
+
+- name: Disable firewall service
+  service:
+    name: firewalld
+    state: stopped
+    enabled: no
+
+- name: Check if k3s is installed
+  stat:
+    path: /usr/local/bin/k3s
+  register: k3s_check_output
+
+- name: Download k3s installer and run it
+  shell: curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+  when: not k3s_check_output.stat.exists
+
