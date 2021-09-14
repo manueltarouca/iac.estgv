@@ -7,6 +7,10 @@
 2. Install the following dependencies:
 - `pip install ansible`
 
+3. Install the following dependencies to create graph visualization of the playbooks
+- `sudo apt install graphviz`
+- `pip install ansible-playbook-grapher`
+
 ## To do
   - encrypt credentials
   - refactor `iac.dns-server` role into multiple tasks files.
