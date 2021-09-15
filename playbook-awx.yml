@@ -1,0 +1,9 @@
+---
+- name: Run the AWX roles
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  # collections:
+  #   - awx.awx
+  roles:
+    - iac.create-awx-resources

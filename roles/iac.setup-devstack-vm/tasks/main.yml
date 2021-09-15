@@ -23,7 +23,8 @@
 
 - name: Create PV
   lvg:
-    pvs: /dev/sdb
+    pvs: 
+    - /dev/sdb
     vg: stack-volumes-lvmdriver-1
     state: present
 

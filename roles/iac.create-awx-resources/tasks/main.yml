@@ -1,0 +1,7 @@
+---
+- name: Create organization
+  awx.awx.organization:
+    name: "Foo"
+    description: "Foo bar organization"
+    state: present
+    controller_config_file: "/home/mt/repos/tese/iac.estgv/.tower-cli.cfg"
