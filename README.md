@@ -1,4 +1,6 @@
-# Ansible roles for docker-vm
+# Infrastructure as Code ESTGV
+
+## Setup
 
 1. Set-up a virtual enviroment
 - `python -m venv docker-env`
@@ -15,5 +17,10 @@
 - `ansible-playbook -i inventory <your-playbook.yml>`
 
 ## To do
-  - encrypt credentials
+  - encrypt credentials **IMPORTANT!!!**
   - refactor roles into multiple tasks files, and use vars file
+  - work on creating the awx resources
+  - work on creating openstack resources
+  - work on deploying moodle instance
+  - work on deploying students lab
+  - work on documentation
