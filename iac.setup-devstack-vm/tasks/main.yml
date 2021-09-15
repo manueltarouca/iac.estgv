@@ -21,13 +21,26 @@
     dest: /etc/sudoers.d/stack
     content: "stack ALL=(ALL) NOPASSWD: ALL"
 
+- name: Create PV
+  lvg:
+    pvs: /dev/sdb
+    vg: stack-volumes-lvmdriver-1
+    state: present
+
 - name: Clone devstack git repo
   git:
     dest: /opt/stack/devstack
     repo: "{{ git_repo }}"
+    version: origin/stable/wallaby
 
 - name: Copy local.conf file
   copy:
     dest: /opt/stack/devstack/
     src: local.conf
 
+- name: Change permissions of devstack folder
+  file:
+    path: /opt/stack/devstack
+    state: directory
+    owner: stack
+    recurse: yes
