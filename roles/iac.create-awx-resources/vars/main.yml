@@ -1,2 +1,14 @@
 ---
-# vars file for roles/iac.create-awx-resources
+tower_config_file: "/home/mt/repos/tese/iac.estgv/.tower-cli.cfg"
+
+teams_list:
+  - Docentes
+  - Alunos
+
+student_list:
+  - estgv00000
+  - estgv16095
+
+docent_list:
+  - docente001
+  - docente002

@@ -17,10 +17,12 @@
 - `ansible-playbook -i inventory <your-playbook.yml>`
 
 ## To do
-  - encrypt credentials **IMPORTANT!!!**
-  - refactor roles into multiple tasks files, and use vars file
   - work on creating the awx resources
   - work on creating openstack resources
+  - work on creating openstack instance maintenance tasks
   - work on deploying moodle instance
-  - work on deploying students lab
+  - work on deploying students lab network
+  - work on deploying students lab instaces
+  - encrypt credentials **IMPORTANT!!!**
+  - refactor roles into multiple tasks files, and use vars file
   - work on documentation

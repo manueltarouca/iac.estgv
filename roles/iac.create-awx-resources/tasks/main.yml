@@ -1,7 +1,53 @@
 ---
-- name: Create organization
+- name: Create ESTGV organization
   awx.awx.organization:
-    name: "Foo"
-    description: "Foo bar organization"
+    name: ESTGV
+    description: "ESTGV organization"
     state: present
-    controller_config_file: "/home/mt/repos/tese/iac.estgv/.tower-cli.cfg"
+    controller_config_file: "{{ tower_config_file }}"
+
+- name: Create teams
+  awx.awx.team:
+    name: "{{ item }}"
+    state: present
+    organization: "ESTGV"
+    controller_config_file: "{{ tower_config_file }}"
+  loop: "{{ teams_list }}"
+
+- name: Create student users
+  awx.awx.user:
+    username: "{{ item }}"
+    password: "{{ item }}2021!"
+    email: "{{ item }}@alunos.estgv.ipv.pt"
+    update_secrets: no
+    state: present
+    controller_config_file: "{{ tower_config_file }}"
+  loop: "{{ student_list }}"
+    
+- name: Create docent users
+  awx.awx.user:
+    username: "{{ item }}"
+    password: "{{ item }}2021!"
+    email: "{{ item }}@docentes.estgv.ipv.pt"
+    update_secrets: no
+    state: present
+    controller_config_file: "{{ tower_config_file }}"
+  loop: "{{ docent_list }}"
+
+- name: Assign docent to its team
+  awx.awx.role:
+    role: member
+    state: present
+    user: "{{ item }}"
+    target_team: "{{ teams_list[0] }}"
+    controller_config_file: "{{ tower_config_file }}"
+  loop: "{{ docent_list }}"
+
+- name: Assign students to its team
+  awx.awx.role:
+    role: member
+    user: "{{ item }}"
+    target_team: "{{ teams_list[1] }}"
+    state: present
+    controller_config_file: "{{ tower_config_file }}"
+  loop: "{{ student_list }}"
