@@ -1,8 +1,25 @@
 ---
-- name: Check project info
+- name: Register projects info
   openstack.cloud.project_info:
     cloud: "{{ clouds.openstack }}"
   register: result
-- name: Debug
+
+- name: Check projects info
   debug:
     msg: "{{ result.openstack_projects }}"
+
+- name: Create iac-estgv project
+  openstack.cloud.project:
+    cloud: "{{ clouds.openstack }}"
+    name: iac-estgv
+    domain_id: default
+    description: Openstack project which supports Automation infrastructure
+    state: present
+  register: new_project_result
+
+- name: Assign admin user to project
+  openstack.cloud.role_assignment:
+    cloud: "{{ clouds.openstack }}"
+    user: admin
+    role: admin
+    project: iac-estgv

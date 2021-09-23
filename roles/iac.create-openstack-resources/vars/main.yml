@@ -5,8 +5,8 @@ clouds:
       auth_url: http://192.168.80.204/identity
       username: "admin"
       password: "secret"
-      project_id: 1b3c695d83454e45924c1a54be7d60c8
-      project_name: "iac_estgv"
+      project_id: 93eefee29f6e43dc9d959fa1e95ea8fa
+      project_name: "admin"
       user_domain_name: "Default"
     region_name: "RegionOne"
     interface: "public"
