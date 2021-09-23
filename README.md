@@ -12,6 +12,7 @@
 3. Install the following dependencies to create graph visualization of the playbooks (**optional**)
 - `sudo apt install graphviz`
 - `pip install ansible-playbook-grapher`
+- `pip install openstacksdk`
 
 4. Run the playbooks:
 - `ansible-playbook -i inventory <your-playbook.yml>`

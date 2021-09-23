@@ -1,0 +1,7 @@
+---
+- name: Run the Devstack roles
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  roles:
+    - iac.create-openstack-resources

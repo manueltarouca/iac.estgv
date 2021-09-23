@@ -1,0 +1,8 @@
+---
+- name: Check project info
+  openstack.cloud.project_info:
+    cloud: "{{ clouds.openstack }}"
+  register: result
+- name: Debug
+  debug:
+    msg: "{{ result.openstack_projects }}"
